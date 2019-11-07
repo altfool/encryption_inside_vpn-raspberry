@@ -46,19 +46,28 @@ class Encryptor:
                 fo.write(dec)
         #os.remove(file_name)
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-e", "--encrypt", action="store_true", default=False, help='encrypt file')
-parser.add_argument("-d", "--decrypt", action="store_true", default=False, help='decrypt file')
-parser.add_argument('-input', action='store', help='input file path')
-parser.add_argument('-pw', action='store', help='password used to encrypt or decrypt')
-args = parser.parse_args()
-if not (args.encrypt or args.decrypt):
-    parser.error('No action requested, add -e for encrypt or -d for decrypt')
-print(args)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-e", "--encrypt", action="store_true", default=False, help='encrypt file')
+    parser.add_argument("-d", "--decrypt", action="store_true", default=False, help='decrypt file')
+    parser.add_argument('-input', action='store', help='input file path')
+    parser.add_argument('-key', action='store', help='password used to encrypt or decrypt')
+    args = parser.parse_args()
+    if not (args.encrypt or args.decrypt):
+        parser.error('No action requested, add -e for encrypt or -d for decrypt')
 
-key = hashlib.sha256(args.pw.encode('utf-8')).digest()
-myenc = Encryptor(key)
-if args.encrypt:
-    myenc.encrypt_file(args.input)
-else:
-    myenc.decrypt_file(args.input)
+    keyh = hashlib.sha256(args.key.encode('utf-8')).digest()
+    myenc = Encryptor(keyh)
+    if args.encrypt:
+        #print("start encryption...", end='')
+        print("start encryption...")
+        myenc.encrypt_file(args.input)
+        print("encryption succeed...")
+    else:
+        #print("start decryption...", end='')
+        print("start decryption...")
+        myenc.decrypt_file(args.input)
+        print("decryption succeed...")
+
+if __name__ == "__main__":
+    main()
