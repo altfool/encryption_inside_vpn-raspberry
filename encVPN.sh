@@ -41,6 +41,7 @@ elif [ $# -eq 1 ];then
     if [ -z "$passwd" ];then
         passwd="abc"
     fi
+    echo
     python3 ./aes256.py -d -input $1 -key $passwd
 
 else
