@@ -32,7 +32,7 @@ if [ $# -eq 2 ];then
     #====transfer===#
     echo "start transmission encrypted file to $2"
     scp $1.enc $2
-
+    #rm $1.enc
 
 # pass 1 arg, decrypt
 elif [ $# -eq 1 ];then
