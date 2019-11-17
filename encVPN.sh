@@ -28,7 +28,7 @@ if [ $# -eq 2 ];then
         passwd="abc"
     fi
     echo
-    echo "$passwd"
+    #echo "$passwd"
     #python3 ./aes256.py -e -input $1 -key $passwd
     python3 ${BASEDIR}/aes256.py -e -input $1 -key $passwd
     #====transfer===#
@@ -37,7 +37,6 @@ if [ $# -eq 2 ];then
     # remove encrypted file
     rm $1.enc
 
-
 # pass 1 arg, decrypt
 elif [ $# -eq 1 ];then
     echo "begin decryption"
@@ -45,6 +44,7 @@ elif [ $# -eq 1 ];then
     if [ -z "$passwd" ];then
         passwd="abc"
     fi
+    echo
     #python3 ./aes256.py -d -input $1 -key $passwd
     python3 ${BASEDIR}/aes256.py -d -input $1 -key $passwd
 
