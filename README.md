@@ -16,13 +16,13 @@ pip3 install pycrypto;
 Usage:
 1)encryption & transmission:
 ./encVPN filename remote_address
-2) decryption
+2) decryption:
 ./encVPN encrypted_filename
-3) detectVPN
+3) detectVPN:
 ./detectVPN
-4)encrypt file with AES algorithm
+4)encrypt file with AES algorithm:
 python3 aes256.py -e -input yourfile -key yourkey
-5)decrypt file with AES algorithm
+5)decrypt file with AES algorithm:
 python3 aes256.py -d -input yourfile -key yourkey
 
 This tool can be used no matter VPN is actived or not. However, it can automatically check VPN status and require user's approval to continue.
