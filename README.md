@@ -7,10 +7,10 @@ Platform:
 Currently we will use the ubuntu 18.04 platform on common desktop and
 raspbian Buster on Raspberry Pi b 3+ device.
 
-Pre_install:
-sudo apt update
-sudo apt install net-tools python3 python3-pip
-pip3 install pycrypto
+Preinstall:
+sudo apt update;
+sudo apt install net-tools python3 python3-pip;
+pip3 install pycrypto;
 
 
 Usage:
